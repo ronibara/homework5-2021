@@ -55,11 +55,14 @@ header p{
 nav a{
   color: black;
   font-weight: bold;
-
+  text-decoration: none;
 }
 /*Req 2*/
 /*Write selector/rule property to add an underline when
 links in the navigation are in the hover or focus state.*/
+nav a:hover{
+  text-decoration: underline;
+}
 
 /*Req 3a*/
 .skip a{
@@ -71,16 +74,28 @@ links in the navigation are in the hover or focus state.*/
   z-index: 1;
 
   /*Your code here*/
+  position: relative;
+  top: -50px;
 }
 /*Req 3b*/
 /*Write selector/rule property to position the skip class element*/
+.skip a:focus{
+  top: 10px;
+}
 
 /*Req 4*/
 /*Write selector/rule property to style all elements when in focus*/
+*:focus{
+  border: 2px;
+  border-style: dashed;
+}
 
 /*Req 5*/
 .container{
-  /*Your Code Here*/
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-template-rows: auto auto auto auto;
+  grid-row-gap: 20px;
 }
 
 header{
@@ -93,46 +108,52 @@ header{
     
   /*Req 6a*/
   /*Set margin */
+  margin-bottom: 25px;
+  background-repeat: no-repeat;
     
   /*Req 6b*/
   /*Set background-image to header.jpg */
- 
+  background-image: url('images/header.jpg');
+  /* see if any more parallax needed HERE */
 
 }
 /*Req 7a*/
 .about, .method, .client, .contacts{
   /*Your Code Here*/
-
+  grid-column: 2 / span 2;
 }
 
 /*Req 8a, 8b, and 8c*/
 .about-image, .method-image, .client-image, .contact-image{
   /*Your Code Here*/
-
+  grid-column: 1 / -1;
+  max-height: 650px;
+  grid-template-columns: minmax(0, 1fr);
+  /* does the above work...HERE */
 }
 
 /*Req 7b & 8d*/
 .about, .about-image{
    /*Your Code Here*/
-
+   grid-row: 1 / 1;
 }
 
 /*Req 7b & 8d*/
 .method, .method-image{
    /*Your Code Here*/
-
+   grid-row: 2 / 2;
 }
 
 /*Req 7b & 8d*/
 .client, .client-image{
     /*Your Code Here*/
-
+    grid-row: 3 / 3;
 }
 
 /*Req 7b & 8d*/
 .contacts, .contact-image{
     /*Your Code Here*/
-
+    grid-row: 4 / 4;
 }
 
 /*Req 9*/
@@ -141,7 +162,7 @@ header{
   border: 10px solid black;
   padding: 30px;
   /*Your code here:*/
-
+  align-items: center;
 }
 
 
@@ -155,21 +176,27 @@ header{
   nav{
     padding: 30px 0px;
     /*Your code here:*/
+    text-align: right;
+    /* something about vertical alignment */
   }
 
   /*Req 11*/
   .container{
     /*Your code here:*/
+    grid-template-columns: 50px auto 500px auto 50px;
+    grid-template-rows: 400px 425px 425px 400px;
   }
 
   /*Req 12*/
   .about, .client, .method-image, .contact-image{
     /*Your code here:*/
+    grid-column: 3 / span 2;
   }
 
   /*Req 13*/
   .about-image, .client-image, .method, .contacts{
     /*Your code here:*/
+    grid-column: 2 / span 2;
   }
 }
 
